@@ -1,5 +1,3 @@
-Готовый код с fixed-фоном и прокруткой контента поверх:
-
 ```html
 <!DOCTYPE html>
 <html lang="ru">
@@ -10,121 +8,221 @@
 <title>Козилов Андрей Николаевич</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html, body{
+html,
+body{
+
     width:100%;
     min-height:100%;
+
     margin:0;
     padding:0;
+
     background:#282830;
+
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
 body{
+
     overflow-x:hidden;
     overflow-y:auto;
 }
 
+/* ФОН */
+
 .bg{
+
     position:fixed;
+
     inset:0;
-    background:url("./bg.jpg") center center / cover no-repeat;
+
+    background:
+    url("./bg.jpg")
+    center center /
+    cover
+    no-repeat;
+
     z-index:0;
 }
 
 .bg::after{
+
     content:"";
+
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,.08);
+
+    background:
+    rgba(0,0,0,.08);
 }
 
+/* ЭКРАН */
+
 .phone{
+
     position:relative;
+
     z-index:2;
+
     width:min(430px,100vw);
+
     min-height:100vh;
+
     margin:0 auto;
+
     color:white;
+
     background:transparent;
+
     overflow:visible;
 }
 
+/* КОНТЕНТ */
+
 .content{
+
     position:relative;
     z-index:2;
+
     min-height:100vh;
-    padding:72px 20px 160px;
+
+    padding:
+    72px
+    20px
+    160px;
+
     display:flex;
     flex-direction:column;
     align-items:center;
 }
 
+/* ИМЯ */
+
 .name{
+
     text-align:center;
+
     font-size:34px;
     font-weight:800;
+
     line-height:1.06;
-    text-shadow:0 10px 28px rgba(0,0,0,.30);
+
+    text-shadow:
+    0 10px 28px rgba(0,0,0,.30);
 }
+
+/* ЛИНИЯ */
 
 .role-line{
+
     width:64px;
     height:2px;
+
     margin:22px auto 18px;
+
     background:#d71920;
-    box-shadow:0 0 10px rgba(215,25,32,.55);
+
+    box-shadow:
+    0 0 10px rgba(215,25,32,.55);
 }
 
+/* ДОЛЖНОСТЬ */
+
 .role{
+
     text-align:center;
+
     font-size:16px;
     line-height:1.45;
+
     color:rgba(255,255,255,.60);
 }
 
+/* КНОПКИ */
+
 .buttons{
+
     width:100%;
+
     margin-top:52px;
+
     display:flex;
     flex-direction:column;
     align-items:center;
 }
 
+/* КНОПКА */
+
 .btn{
+
     position:relative;
     overflow:hidden;
+
     width:72%;
+
     min-height:54px;
+
     margin:9px 0;
     padding:9px 13px;
+
     border-radius:18px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     text-decoration:none;
     color:#fff;
-    background:linear-gradient(145deg,rgba(255,255,255,.012),rgba(8,10,16,.035));
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.012),
+        rgba(8,10,16,.035)
+    );
+
     border:1px solid rgba(215,25,32,.42);
+
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.015),0 6px 14px rgba(0,0,0,.03);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.015),
+        0 0 0 1px rgba(255,255,255,.018),
+        0 6px 14px rgba(0,0,0,.03);
+
     transition:.22s ease;
 }
 
+/* SHINE */
+
 .btn::before{
+
     content:"";
+
     position:absolute;
+
     top:0;
     left:-120%;
+
     width:70%;
     height:100%;
-    background:linear-gradient(110deg,transparent,rgba(255,255,255,.04),transparent);
+
+    background:
+    linear-gradient(
+        110deg,
+        transparent,
+        rgba(255,255,255,.04),
+        transparent
+    );
+
     transition:.7s ease;
 }
 
@@ -133,64 +231,153 @@ body{
 }
 
 .btn:hover{
+
     transform:translateY(-2px);
-    background:linear-gradient(145deg,rgba(255,255,255,.02),rgba(8,10,16,.05));
-    border-color:rgba(255,255,255,.04);
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.02),
+        rgba(8,10,16,.05)
+    );
 }
 
 .btn:active{
     transform:scale(.985);
 }
 
+/* SPLIT BUTTON */
+
+.split-btn{
+
+    padding:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.split-part{
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.split-left{
+
+    width:62%;
+
+    padding-left:13px;
+}
+
+.split-right{
+
+    width:38%;
+
+    justify-content:center;
+
+    border-left:
+    1px solid rgba(215,25,32,.42);
+}
+
+/* ЛЕВАЯ ЧАСТЬ */
+
 .left{
+
     display:flex;
     align-items:center;
     gap:12px;
+
     position:relative;
     z-index:2;
 }
 
+/* ИКОНКА */
+
 .icon{
+
     width:36px;
     height:36px;
+
     border-radius:12px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    background:linear-gradient(145deg,rgba(255,255,255,.015),rgba(255,255,255,.003));
-    border:1px solid rgba(255,255,255,.02);
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.015),
+        rgba(255,255,255,.003)
+    );
+
+    border:
+    1px solid rgba(255,255,255,.02);
 }
 
 .icon svg{
+
     width:20px;
     height:20px;
+
     stroke:white;
     stroke-width:2;
+
     fill:none;
+
     stroke-linecap:round;
     stroke-linejoin:round;
+
     opacity:.88;
 }
 
+/* ТЕКСТ */
+
 .title{
+
     font-size:15px;
     font-weight:620;
 }
 
 .subtitle{
+
     margin-top:2px;
+
     font-size:12px;
+
     color:rgba(255,255,255,.42);
 }
 
+/* СТРЕЛКА */
+
 .arrow{
+
     position:relative;
     z-index:2;
+
     font-size:26px;
+
     color:rgba(255,255,255,.14);
 }
 
+/* MOBILE */
+
 @media(max-width:600px){
+
     .content{
         padding:72px 20px 170px;
     }
@@ -207,6 +394,7 @@ body{
         width:78%;
     }
 }
+
 </style>
 </head>
 
@@ -215,127 +403,250 @@ body{
 <div class="bg"></div>
 
 <div class="phone">
+
 <div class="content">
+
+    <!-- ИМЯ -->
 
     <div class="name">
         Козилов<br>
         Андрей Николаевич
     </div>
 
+    <!-- ЛИНИЯ -->
+
     <div class="role-line"></div>
+
+    <!-- ДОЛЖНОСТЬ -->
 
     <div class="role">
         Генеральный директор<br>
         ООО «БИЗНЕС КАР КУБАНЬ»
     </div>
 
+    <!-- КНОПКИ -->
+
     <div class="buttons">
 
-        <a class="btn" href="tel:+79263303257">
-            <div class="left">
-                <div class="icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3 5.2 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.8L8.6 10.3a16 16 0 0 0 5.1 5.1l1.2-1.2a2 2 0 0 1 1.8-.6l2.6.4A2 2 0 0 1 22 16.9z"/>
-                    </svg>
+        <!-- SPLIT BUTTON -->
+
+        <div class="btn split-btn">
+
+            <!-- ЛЕВАЯ -->
+
+            <a class="split-part split-left"
+               href="tel:+79263303257">
+
+                <div class="left">
+
+                    <div class="icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3 5.2 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.8L8.6 10.3a16 16 0 0 0 5.1 5.1l1.2-1.2a2 2 0 0 1 1.8-.6l2.6.4A2 2 0 0 1 22 16.9z"/>
+                        </svg>
+
+                    </div>
+
+                    <div class="title">
+                        Позвонить
+                    </div>
+
                 </div>
-                <div>
-                    <div class="title">Позвонить</div>
-                    <div class="subtitle">+7 926 330 32 57</div>
+
+            </a>
+
+            <!-- ПРАВАЯ -->
+
+            <a class="split-part split-right"
+
+               href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AN:Козилов;Андрей;;;%0AFN:Козилов Андрей • Toyota БИЗНЕС КАР%0AORG:ООО БИЗНЕС КАР КУБАНЬ%0ATITLE:Генеральный директор%0ATEL:+79263303257%0AEND:VCARD"
+
+               download="kozilov.vcf">
+
+                <div class="title">
+                    Сохранить
                 </div>
-            </div>
-            <div class="arrow">›</div>
-        </a>
+
+            </a>
+
+        </div>
+
+        <!-- WhatsApp -->
 
         <a class="btn" href="https://wa.me/79263303257">
+
             <div class="left">
+
                 <div class="icon">
+
                     <svg viewBox="0 0 24 24">
                         <path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4.1A8 8 0 1 1 20 11.6z"/>
                         <path d="M9 8.8c.2 3.2 2.2 5.2 5.4 6"/>
                     </svg>
+
                 </div>
-                <div class="title">WhatsApp</div>
+
+                <div class="title">
+                    WhatsApp
+                </div>
+
             </div>
+
             <div class="arrow">›</div>
+
         </a>
 
+        <!-- Telegram -->
+
         <a class="btn" href="https://t.me/a1dre2y">
+
             <div class="left">
+
                 <div class="icon">
+
                     <svg viewBox="0 0 24 24">
                         <path d="M21 3 3 10.4l6.9 2.2L18 6.8l-6.1 7.4L12 21l3.6-5 4.6 3z"/>
                     </svg>
+
                 </div>
-                <div class="title">Telegram</div>
+
+                <div class="title">
+                    Telegram
+                </div>
+
             </div>
+
             <div class="arrow">›</div>
+
         </a>
 
-        <a class="btn" href="https://max.ru/u/f9LHodD0cOIVcf144o0fcP2rrUD-uFS5Edvtxpwsbc-xEmE1VGHz282xzi0">
+        <!-- MAX -->
+
+        <a class="btn"
+           href="https://max.ru/u/f9LHodD0cOIVcf144o0fcP2rrUD-uFS5Edvtxpwsbc-xEmE1VGHz282xzi0">
+
             <div class="left">
+
                 <div class="icon">
+
                     <svg viewBox="0 0 24 24">
                         <path d="M5 17.5A8 8 0 1 1 8.3 20L4 21z"/>
                     </svg>
+
                 </div>
-                <div class="title">MAX</div>
+
+                <div class="title">
+                    MAX
+                </div>
+
             </div>
+
             <div class="arrow">›</div>
+
         </a>
 
-        <a class="btn" href="https://yandex.com/maps/-/CPgMmTne">
+        <!-- АДРЕС -->
+
+        <a class="btn"
+           href="https://yandex.com/maps/-/CPgMmTne">
+
             <div class="left">
+
                 <div class="icon">
+
                     <svg viewBox="0 0 24 24">
                         <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12z"/>
                         <circle cx="12" cy="9" r="2.5"/>
                     </svg>
+
                 </div>
+
                 <div>
-                    <div class="title">Адрес</div>
-                    <div class="subtitle">Яндекс Карты</div>
+
+                    <div class="title">
+                        Адрес
+                    </div>
+
+                    <div class="subtitle">
+                        Яндекс Карты
+                    </div>
+
                 </div>
+
             </div>
+
             <div class="arrow">›</div>
+
         </a>
 
-        <a class="btn" href="#" onclick="openBusinessCarApp(); return false;">
+        <!-- ПРИЛОЖЕНИЕ -->
+
+        <a class="btn"
+           href="#"
+           onclick="openBusinessCarApp(); return false;">
+
             <div class="left">
+
                 <div class="icon">
+
                     <svg viewBox="0 0 24 24">
                         <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/>
                         <path d="M12 8v8"/>
                         <path d="M8 10l4-2 4 2"/>
                     </svg>
+
                 </div>
+
                 <div>
-                    <div class="title">Мобильное приложение</div>
-                    <div class="subtitle">БИЗНЕС КАР</div>
+
+                    <div class="title">
+                        Мобильное приложение
+                    </div>
+
+                    <div class="subtitle">
+                        БИЗНЕС КАР
+                    </div>
+
                 </div>
+
             </div>
+
             <div class="arrow">›</div>
+
         </a>
 
     </div>
 
 </div>
+
 </div>
 
 <script>
+
 function openBusinessCarApp(){
+
     const ua = navigator.userAgent || navigator.vendor || window.opera;
 
-    const ios = "https://apps.apple.com/ru/app/бизнес-кар/id6470002341";
-    const android = "https://play.google.com/store/apps/details?id=com.profsoft.businesscar&pcampaignid=web_share";
+    const ios =
+    "https://apps.apple.com/ru/app/бизнес-кар/id6470002341";
+
+    const android =
+    "https://play.google.com/store/apps/details?id=com.profsoft.businesscar&pcampaignid=web_share";
 
     if(/iPhone|iPad|iPod/i.test(ua)){
+
         window.location.href = ios;
+
     }else if(/Android/i.test(ua)){
+
         window.location.href = android;
+
     }else{
+
         window.location.href = ios;
     }
 }
+
 </script>
 
 </body>
